@@ -1,0 +1,13 @@
+﻿@model Compaign
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Are you sure to delete this compaign</h1>
+<h4>@Model.Title</h4>
+
+<form method="post">
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary text-light">Go Back</a>
+</form>

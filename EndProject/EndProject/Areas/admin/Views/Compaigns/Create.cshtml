@@ -1,0 +1,42 @@
+﻿@model Compaign
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="@Model.Title"></label>
+        <input asp-for="@Model.Title" class="form-control">
+        <span asp-validation-for="@Model.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Subtitle"></label>
+        <input asp-for="@Model.Subtitle" class="form-control">
+        <span asp-validation-for="@Model.Subtitle" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Description"></label>
+        <input asp-for="@Model.Description" class="form-control">
+        <span asp-validation-for="@Model.Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.CreatedTime"></label>
+        <input asp-for="@Model.CreatedTime" class="form-control">
+        <span asp-validation-for="@Model.CreatedTime" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Photo"></label>
+        <input asp-for="@Model.Photo" class="form-control">
+        <span asp-validation-for="@Model.Photo" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" class="btn btn-secondary text-light">Go Back</a>
+</form>
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+}
+
+
+

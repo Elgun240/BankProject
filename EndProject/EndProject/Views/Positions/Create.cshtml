@@ -1,0 +1,19 @@
+﻿@model Position
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="@Model.Name"></label>
+        <input asp-for="@Model.Name" class="form-control">
+        <span asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" class="btn btn-secondary text-light">Go Back</a>
+</form>
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+}
+

@@ -1,0 +1,50 @@
+﻿@model Workers
+@{
+    ViewData["Title"] = "Create";
+}
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="@Model.Photo"></label>
+        <input asp-for="@Model.Photo" class="form-control">
+        <span asp-validation-for="@Model.Photo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Name"></label>
+        <textarea asp-for="@Model.Name" class="form-control"></textarea>
+        <span asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Surname"></label>
+        <textarea asp-for="@Model.Surname" class="form-control"></textarea>
+        <span asp-validation-for="@Model.Surname" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Age"></label>
+        <textarea asp-for="@Model.Age" class="form-control"></textarea>
+        <span asp-validation-for="@Model.Age" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect2">Position</label>
+        <select multiple class="form-control" name="posId">
+            @foreach (Position item in ViewBag.Positions)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+            
+        </select>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" class="btn btn-secondary text-light">Go Back</a>
+</form>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+   
+
+}
+
+
+

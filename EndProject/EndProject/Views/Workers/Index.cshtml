@@ -1,0 +1,89 @@
+﻿@model List<Workers>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Workers</h4>
+            <a asp-action="Create" class="btn btn-primary">Create</a>
+            <div class="table-responsive">
+                <table id="myTable" class="table table-hover">
+                    <thead>
+                        <tr>
+
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Surname</th>
+                            <th>Age</th>
+
+                            <th>Position</th>
+                            <th>IsDeactive</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Workers item in Model)
+                        {
+                            <tr>
+
+                                <td>
+                                    <img src="~/admin/images/@item.Images" style="width:150px;height:150px;object-fit:cover;border-radius:10px" />
+                                </td>
+                                <td>@item.Name</td>
+                                <td>@item.Surname</td>
+                                <td>@item.Age</td>
+                                <td>@item.Position.Name</td>
+
+                                <td>
+                                    @if (item.IsDeactive)
+                                    {
+                                        <span class="text-danger">Deactive</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-success">Active</span>
+                                    }
+                                </td>
+
+                                <td>
+                                    @if (item.IsDeactive)
+                                    {
+                                        <a asp-action="Activity" asp-route-id="@item.Id" class="btn btn-secondary">Activate</a>
+                                    }
+                                    else
+                                    {
+                                        <a asp-action="Activity" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                                    }
+
+                                    <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-success">Update</a>
+                                    <a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-warning">Detail</a>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+}
+
+
+
+
+
+
+
+
+
